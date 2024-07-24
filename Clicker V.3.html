@@ -1,0 +1,154 @@
+<html>
+<head>
+<style>
+#clicked {
+position:absolute;
+top:30%;
+left:70%;
+}
+#click {
+position:absolute;
+top:10%;
+left:70%;
+}
+#upgradeExtraClicks {
+position:absolute;
+top:2%;
+left:30%;
+}
+#upgradeExtraClicks2 {
+position:absolute;
+top:35%;
+left:30%;
+}
+#upgradeExtraClicks3 {
+position:absolute;
+top:67%;
+left:30%;
+}
+#text {
+position:absolute;
+top:10%;
+left:5%;
+}
+#text2 {
+position: absolute;
+top:15%;
+left:5%;
+}
+#text3 {
+position:absolute;
+top:43%;
+left:5%;
+}
+#text4 {
+position: absolute;
+top:48%;
+left:5%;
+}
+#text5 {
+position:absolute;
+top:76%;
+left:5%;
+}
+#text6 {
+position: absolute;
+top:81%;
+left:5%;
+}
+</style>
+</head>
+<body>
+
+
+<button onclick="clicked()"id="clicked">
+<img src="click.png">
+</button>
+
+<button id="click">0</button>
+
+<button onclick="autoClick()"id="autoClick">Auto click function</button>
+
+<button onclick="upgrade()"id="upgrade">free clicks (1000) and autoclick by (1)(free)</button>
+
+
+
+<button onclick="upgradeExtraClicks()"id="upgradeExtraClicks">
+<img src="person.png">
+</button>
+
+<button onclick="upgradeExtraClicks2()"id="upgradeExtraClicks2">
+<img src="computer.png">
+</button>
+
+<button onclick="upgradeExtraClicks3()"id="upgradeExtraClicks3">
+<img src="golden.png">
+</button>
+
+<div id="text">Hire a person to click for you!</div>
+<div id="text2">Costs 1000 clicks and increases clicks by 1.</div>
+
+<div id="text3">Buy a computer to click for you!</div>
+<div id="text4">Costs 5000 clicks and increases clicks by 10</div>
+
+<div id="text5">Buy a golden cursor to click for you!</div>
+<div id="text6">Costs 100000 clicks and increases clicks by 1000</div>
+
+<script>
+
+
+
+var click=0
+var increase=1
+var autoClickInterval
+var costForUpgrade=1000
+var extraClicks=0
+
+function clicked(){
+click+=increase
+document.getElementById("click").innerText = click
+}
+
+function autoClick(){
+autoClickInterval = setInterval(clicked, 10);
+setTimeout(stopAutoClick, 1000);
+}
+
+function stopAutoClick(){
+clearInterval(autoClickInterval);
+}
+
+function upgrade(){
+
+click+=1000
+increase+=1
+document.getElementById("click").innerText = click
+
+}
+
+function upgradeExtraClicks(){
+if (click >= 1000){
+click -= 1000
+increase += 1
+document.getElementById("click").innerText = click
+}
+}
+
+function upgradeExtraClicks2(){
+if (click >= 5000){
+click -= 5000
+increase += 10
+document.getElementById("click").innerText = click
+}
+}
+function upgradeExtraClicks3(){
+if (click >= 100000){
+click -= 100000
+increase += 1000
+document.getElementById("click").innerText = click
+}
+}
+
+</script>
+</body>
+</html>
